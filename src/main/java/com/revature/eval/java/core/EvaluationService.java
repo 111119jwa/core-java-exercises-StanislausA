@@ -1,8 +1,10 @@
 package com.revature.eval.java.core;
 
 import java.time.temporal.Temporal;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class EvaluationService {
 
@@ -13,6 +15,8 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
+
+
 	public String reverse(String string) {
 		char[] reversed = new char[string.length()];
 		for (int i = reversed.length - 1, j=0; i >= 0; i--, j++) {
@@ -30,8 +34,20 @@ public class EvaluationService {
 	 * @return
 	 */
 	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+
+		char[] chars = phrase.toUpperCase().toCharArray();
+
+		System.out.print(chars[0]);
+
+		for(int c = 0; c <= chars.length - 1; c++) {
+
+			if(chars[c] == ' ') {
+
+				System.out.print(chars[c + 1]);
+			}
+		}
+		System.out.println();
+		return phrase;
 	}
 
 	/**
@@ -84,18 +100,32 @@ public class EvaluationService {
 		}
 
 		public boolean isEquilateral() {
-			// TODO Write an implementation for this method declaration
-			return false;
+
+			if (sideOne + sideTwo + sideThree / 3 == sideOne) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 
 		public boolean isIsosceles() {
-			// TODO Write an implementation for this method declaration
-			return false;
+
+			if(sideOne == sideTwo || sideOne == sideThree || sideTwo == sideThree) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 
 		public boolean isScalene() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if(sideOne != sideTwo && sideOne != sideThree && sideTwo != sideThree) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 
 	}
@@ -116,8 +146,9 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		int pointCount = 0;
+		
+		return pointCount;
 	}
 
 	/**
@@ -152,8 +183,15 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		string = string.replaceAll("[a-z A-Z!@#.$%^&*()+_-]", "");
+		
+		string = string.replaceFirst("1", "");
+		
+		if (string.length() != 10) {
+			throw new IllegalArgumentException("Invalid number.");
+		}
+		return string;
 	}
 
 	/**
@@ -246,8 +284,23 @@ public class EvaluationService {
 	 * @return
 	 */
 	public String toPigLatin(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		String temp = string.toLowerCase();
+		String holds = null;
+		
+		
+		for (int c = 0; c < temp.length(); c++) {
+			if (temp.charAt(c) == 'a' || temp.charAt(c) == 'e' || temp.charAt(c) == 'i' || temp.charAt(c) == 'o' || temp.charAt(c) == 'u') {
+				temp += "ay";
+				break;
+			}
+			else {
+				/*
+				 * Remember substring here or appends somehow.
+				 */
+			}
+		}
+		return temp;
 	}
 
 	/**
